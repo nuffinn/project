@@ -15,6 +15,7 @@ public class AIMS {
 		dvd1.setLength(87);
 		
 		anOrder.addDigitalVideoDisc(dvd1);
+		//nothing
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars");
 		dvd2.setCategory("Science fiction");
