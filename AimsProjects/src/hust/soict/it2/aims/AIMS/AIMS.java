@@ -1,6 +1,6 @@
 package hust.soict.it2.aims.AIMS;
 
-import hust.soict.it2.aims.disc.DigitalVideoDisc;
+import hust.soict.it2.aims.media.DigitalVideoDisc;
 import hust.soict.it2.aims.order.Order;
 
 public class AIMS {
@@ -14,8 +14,7 @@ public class AIMS {
 		dvd1.setDirector("Roger Allers");
 		dvd1.setLength(87);
 		
-		anOrder.addDigitalVideoDisc(dvd1);
-		//nothing
+		anOrder.addMedia(dvd1);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars");
 		dvd2.setCategory("Science fiction");
@@ -23,7 +22,7 @@ public class AIMS {
 		dvd2.setDirector("Geogre Lucas");
 		dvd2.setLength(124);
 		
-		anOrder.addDigitalVideoDisc(dvd2);
+		anOrder.addMedia(dvd2);
 		anOrder.printItems();
 		
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Alladin");
@@ -32,7 +31,7 @@ public class AIMS {
 		dvd3.setDirector("John Musker");
 		dvd3.setLength(90);
 		
-		anOrder1.addDigitalVideoDisc(dvd3);
+		anOrder1.addMedia(dvd3);
 		anOrder1.printItems();
 	}
 

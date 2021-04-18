@@ -1,6 +1,7 @@
 package hust.soict.it2.aims.AIMS;
 
-import hust.soict.it2.aims.disc.DigitalVideoDisc;
+import hust.soict.it2.aims.media.DigitalVideoDisc;
+import hust.soict.it2.aims.media.Media;
 import hust.soict.it2.aims.order.Order;
 
 public class DiskTest {
@@ -16,7 +17,7 @@ public class DiskTest {
 		dvd1.setDirector("Roger Allers");
 		dvd1.setLength(87);
 		
-		anOrder2.addDigitalVideoDisc(dvd1);
+		anOrder2.addMedia(dvd1);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars");
 		dvd2.setCategory("Science fiction");
@@ -24,7 +25,7 @@ public class DiskTest {
 		dvd2.setDirector("Geogre Lucas");
 		dvd2.setLength(124);
 		
-		anOrder2.addDigitalVideoDisc(dvd2);
+		anOrder2.addMedia(dvd2);
 		
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Alladin");
 		dvd3.setCategory("animation");
@@ -32,9 +33,9 @@ public class DiskTest {
 		dvd3.setDirector("John Musker");
 		dvd3.setLength(90);
 		
-		anOrder2.addDigitalVideoDisc(dvd3);
+		anOrder2.addMedia(dvd3);
 		System.out.println("\ntotal cost: " + anOrder2.totalCost());
-		DigitalVideoDisc disk = anOrder2.getALuckyItem();
+		Media disk = anOrder2.getALuckyItem();
 		System.out.println(disk.getTitle() +" is free\ntotal cost is: " + anOrder2.totalCost());
 		
 	}
