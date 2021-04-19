@@ -18,6 +18,10 @@ public class Book extends Media {
 		super(title, category);
 	}
 	
+	public Book(String title, String category, float cost, int id) {
+		super(title, category,cost,id);
+	}
+	
 	public Book(String title, String category, ArrayList<String> authors) {
 		super(title, category);
 		this.authors = authors;

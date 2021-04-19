@@ -3,6 +3,8 @@ package hust.soict.it2.aims.order;
 import java.util.ArrayList;
 import java.util.Random;
 
+import hust.soict.it2.aims.media.Book;
+import hust.soict.it2.aims.media.CompactDisc;
 import hust.soict.it2.aims.media.DigitalVideoDisc;
 import hust.soict.it2.aims.media.Media;
 import hust.soict.it2.aims.utils.MyDate;
@@ -10,6 +12,13 @@ import hust.soict.it2.aims.utils.MyDate;
 public class Order {
 	public Order() {
 		super();
+		nbOrders++;
+		if(nbOrders == MAX_LIMITTED_ORDERS) System.out.println("Max number of orders reached");
+	}
+	
+	public Order(int id1) {
+		super();
+		this.id = id1;
 		nbOrders++;
 		if(nbOrders == MAX_LIMITTED_ORDERS) System.out.println("Max number of orders reached");
 	}
@@ -23,6 +32,8 @@ public class Order {
 	private static int nbOrders = 0;
 	
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	
+	private int id;
 	
 	public void printItems(){
 		System.out.println("***********************Order***********************");
@@ -52,8 +63,29 @@ public class Order {
 		itemsOrdered.add(media1);
 	}
 	
+	public void addDVD(DigitalVideoDisc dvd) {
+		itemsOrdered.add(dvd);
+	}
+	
+	public void addCD(CompactDisc cd) {
+		itemsOrdered.add(cd);
+	}
+	
+	public void addBook(Book book) {
+		itemsOrdered.add(book);
+	}
+	
 	public void removeMedia(Media media1) {
 		itemsOrdered.remove(media1);
+	}
+	
+	public void removeById(int ind) {
+		for (int c =0; c < itemsOrdered.size(); c++) {
+			if (itemsOrdered.get(c).getId()== ind) {
+				itemsOrdered.remove(c);
+				break;
+			} else System.out.println("No item with id " + ind);
+		}
 	}
 	
 	public Media getALuckyItem() {
