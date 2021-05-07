@@ -57,10 +57,12 @@ public class Order {
 			total += itemsOrdered.get(y).getCost();
 		}
 		return total;
-	}
+	} 
 	
 	public void addMedia(Media media1) {
-		itemsOrdered.add(media1);
+		if (itemsOrdered.contains(media1)) {
+			return;
+		}else itemsOrdered.add(media1);
 	}
 	
 	public void addDVD(DigitalVideoDisc dvd) {
@@ -95,5 +97,13 @@ public class Order {
 		itemsOrdered.remove(nb1);
 		return temp;
 	}
+	
+	public Media getItemById(int index) {
+		for(int i =0; i< nbOrders; i++) {
+			if (itemsOrdered.get(i).getId() == index) return itemsOrdered.get(i);
+		}
+		return itemsOrdered.get(0);
+	}
+	
 }
 

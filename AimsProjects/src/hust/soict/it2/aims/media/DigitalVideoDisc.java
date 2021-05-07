@@ -1,6 +1,6 @@
 package hust.soict.it2.aims.media;
 
-public class DigitalVideoDisc extends Disc implements Playable {
+public class DigitalVideoDisc extends Disc implements Playable,Comparable<DigitalVideoDisc> {
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
 		super(title, category, cost, length, director, id);
 	}
@@ -52,5 +52,10 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		System.out.println("Playing DVD: " + this.getTitle());
 		System.out.println("DVD length: " + this.getLength());
 		}
+	
+	public int compareTo(DigitalVideoDisc dvd) {
+		int temp =(int)(this.cost - dvd.cost);
+		return temp;
+	}
 	
 }

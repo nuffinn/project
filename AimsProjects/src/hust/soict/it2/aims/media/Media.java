@@ -43,5 +43,9 @@ public abstract class Media {
 	public float getCost() {
 		return cost;
 	}
-
+	
+	public boolean equals(Media med) {
+		if (this.id == med.id) return true;
+		else return false;
+	}
 }
