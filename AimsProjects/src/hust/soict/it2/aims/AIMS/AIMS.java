@@ -23,7 +23,7 @@ public class AIMS {
 		int index = 0;
 		orderList.add(new Order(index));
 		int a;
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.zin);
 		
 		do {
 			showMenu();
