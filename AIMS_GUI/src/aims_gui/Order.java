@@ -3,6 +3,9 @@ package aims_gui;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 public class Order {
 	public Order() {
@@ -88,9 +91,10 @@ public class Order {
 		for (int c =0; c < itemsOrdered.size(); c++) {
 			if (itemsOrdered.get(c).getId()== ind) {
 				itemsOrdered.remove(c);
-				break;
-			} else System.out.println("No item with id " + ind);
+				return;
+			}
 		}
+		System.out.println("No item with id " + ind);
 	}
 	
 	public Media getALuckyItem() {
@@ -114,6 +118,14 @@ public class Order {
 	
 	public int getId() {
 		return this.id;
+	}
+	
+	public Media get(int index) {
+		return itemsOrdered.get(index);
+	}
+	
+	public int getNbOrdered() {
+		return itemsOrdered.size();
 	}
 	
 }

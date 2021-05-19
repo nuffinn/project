@@ -14,8 +14,9 @@ public class CompactDisc extends Disc implements Playable,Comparable<CompactDisc
 		super();
 	}
 	
-	public CompactDisc(int id) {
+	public CompactDisc(String str, int id) {
 		this.id = id;
+		this.title = str;
 	}
 	
 	private String artist;

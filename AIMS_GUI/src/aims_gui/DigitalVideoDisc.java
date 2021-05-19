@@ -15,9 +15,10 @@ public class DigitalVideoDisc extends Disc implements Playable,Comparable<Digita
 		this.title = title;
 		this.category = category;
 	}
-	public DigitalVideoDisc(String title) {
+	public DigitalVideoDisc(String title, int id) {
 		super();
 		this.title = title;
+		this.id = id;
 	}
 	
 	public String getDirector() {
