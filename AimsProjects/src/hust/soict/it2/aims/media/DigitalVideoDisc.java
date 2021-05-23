@@ -1,5 +1,7 @@
 package hust.soict.it2.aims.media;
 
+import hust.soict.it2.aims.AIMS.PlayerException;
+
 public class DigitalVideoDisc extends Disc implements Playable,Comparable<DigitalVideoDisc> {
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
 		super(title, category, cost, length, director, id);
@@ -48,9 +50,13 @@ public class DigitalVideoDisc extends Disc implements Playable,Comparable<Digita
 		return true;
 	}
 	
-	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+	public void play() throws PlayerException {
+		if (this.length >0) {
+			System.out.println("Playing DVD: " + this.getTitle());
+			System.out.println("DVD length: " + this.getLength());
+		} else {
+			throw new PlayerException("DVD's length is not valid!");
+		}
 		}
 	
 	public int compareTo(DigitalVideoDisc dvd) {

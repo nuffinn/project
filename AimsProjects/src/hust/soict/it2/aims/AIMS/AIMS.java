@@ -10,7 +10,7 @@ import hust.soict.it2.aims.media.MemoryDaemon;
 import hust.soict.it2.aims.order.Order;
 
 public class AIMS {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PlayerException {
 		MemoryDaemon mmr = new MemoryDaemon();
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("alladin","fantasy","james",124,20,001);
@@ -23,7 +23,7 @@ public class AIMS {
 		int index = 0;
 		orderList.add(new Order(index));
 		int a;
-		Scanner scanner = new Scanner(System.zin);
+		Scanner scanner = new Scanner(System.in);
 		
 		do {
 			showMenu();
@@ -43,7 +43,11 @@ public class AIMS {
 			        	System.out.println("Do you want to play: " + orderList.get(index).getItemById(dvd1.getId()).getTitle()
 			        		+ "\n0:No   1.Yes");
 			        	int temp1 = scanner.nextInt();
+			        	try {
 			        	if(temp1== 1) dvd1.play();
+			        	} catch (PlayerException e) {
+			        		System.out.println(e.getMessage());
+			        	}
 			        	break;
 			        }
 			        if (temp == 2) {
@@ -51,7 +55,11 @@ public class AIMS {
 			        	System.out.println("Do you want to play: " + cd1.getTitle()
 		        		+ "\n0:No   1.Yes");
 			        	int temp1 = scanner.nextInt();
+			        	try {
 			        	if(temp1== 1) cd1.play();
+			        	} catch (PlayerException e) {
+			        		System.out.println(e.getMessage());
+			        	}
 			        	break;
 			        }
 			        if (temp == 3) {

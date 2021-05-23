@@ -44,8 +44,16 @@ public abstract class Media {
 		return cost;
 	}
 	
-	public boolean equals(Media med) {
-		if (this.id == med.id) return true;
-		else return false;
+	public boolean equals(Media med1, Media med2) {
+		try {
+			if(med1.title==med2.title) {
+				return true;
+			}else return false;
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (ClassCastException e) {
+			System.out.println(e.getMessage());
+		}
+		return false;
 	}
 }

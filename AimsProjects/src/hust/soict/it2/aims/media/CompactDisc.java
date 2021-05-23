@@ -2,6 +2,8 @@ package hust.soict.it2.aims.media;
 
 import java.util.ArrayList;
 
+import hust.soict.it2.aims.AIMS.PlayerException;
+
 public class CompactDisc extends Disc implements Playable,Comparable<CompactDisc> {
 
 	public CompactDisc(String artist, ArrayList<Track> tracks) {
@@ -42,11 +44,18 @@ public class CompactDisc extends Disc implements Playable,Comparable<CompactDisc
 		return total;
 	}
 	
-	public void play() {
-		for (int i=0; i<tracks.size(); i++) {
-			System.out.println(artist);
-			tracks.get(i).play();
-		}
+	public void play() throws PlayerException {
+		if (this.getLength() >0) {
+			for (int i=0; i<tracks.size(); i++) {
+				try {
+					System.out.println(artist);
+					tracks.get(i).play();
+				}catch (PlayerException e) {
+					throw e;
+				}
+			}	
+		}else throw new PlayerException("CD's lenghth is not valid!");
+		
 	}
 
 	@Override

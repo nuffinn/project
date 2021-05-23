@@ -3,15 +3,20 @@ package aims_gui;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.naming.LimitExceededException;
+
+import hust.soict.it2.aims.order.Order;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 
 public class Order {
-	public Order() {
-		super();
-//		nbOrders++;
-//		if(nbOrders == MAX_LIMITTED_ORDERS) System.out.println("Max number of orders reached");
+	public Order() throws LimitExceededException {
+		if (Order.nbOrders < MAX_LIMITTED_ORDERS) {
+			nbOrders ++;
+		} else {
+			throw new LimitExceededException("The number of orders has reached its limit!");
+		}
 	}
 	
 	public Order(String name) {
@@ -33,7 +38,7 @@ public class Order {
 	
 	private MyDate dateOrdered = new MyDate();
 	
-//	public static final int MAX_LIMITTED_ORDERS = 5;
+	public static final int MAX_LIMITTED_ORDERS = 5;
 	
 	private static int nbOrders = 0;
 	

@@ -32,7 +32,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			primaryStage.setTitle("AIMS application");
-			
 			VBox root = new VBox();
 			root.setSpacing(8);
 			FlowPane flPane = new FlowPane();

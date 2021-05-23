@@ -3,6 +3,8 @@ package hust.soict.it2.aims.order;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.naming.LimitExceededException;
+
 import hust.soict.it2.aims.media.Book;
 import hust.soict.it2.aims.media.CompactDisc;
 import hust.soict.it2.aims.media.DigitalVideoDisc;
@@ -10,10 +12,12 @@ import hust.soict.it2.aims.media.Media;
 import hust.soict.it2.aims.utils.MyDate;
 
 public class Order {
-	public Order() {
-		super();
-		nbOrders++;
-		if(nbOrders == MAX_LIMITTED_ORDERS) System.out.println("Max number of orders reached");
+	public Order() throws LimitExceededException {
+		if (Order.nbOrders < MAX_LIMITTED_ORDERS) {
+			nbOrders ++;
+		} else {
+			throw new LimitExceededException("The number of orders has reached its limit!");
+		}
 	}
 	
 	public Order(int id1) {

@@ -1,5 +1,7 @@
 package hust.soict.it2.aims.media;
 
+import hust.soict.it2.aims.AIMS.PlayerException;
+
 public class Track implements Playable,Comparable<Track> {
 
 	private String title;
@@ -9,9 +11,13 @@ public class Track implements Playable,Comparable<Track> {
 		super();
 	}
 	
-	public void play() {
-		System.out.println("Playing : " + this.getTitle());
-		System.out.println("length: " + this.getLength());
+	public void play() throws PlayerException {
+		if (this.length >0) {
+			System.out.println("Playing : " + this.getTitle());
+			System.out.println("length  : " + this.getLength());
+		} else {
+			throw new PlayerException("DVD's length is not valid!");
+		}
 		}
 	
 	public Track(String title, int length) {
